@@ -1,6 +1,6 @@
 package com.example.spring03.service;
 
-import com.example.spring03.exception.VehicleNotFoundException;
+import com.example.spring03.exception.NotFoundException;
 import com.example.spring03.model.Vehicle;
 import com.example.spring03.repository.VehicleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,11 @@ public class VehicleService implements IVehicle {
     private VehicleRepo repository;
 
     @Override
-    public Vehicle getVehicle(String plate) throws VehicleNotFoundException {
+    public Vehicle getVehicle(String plate) throws NotFoundException {
         Optional<Vehicle> vehicle = repository.getVehicle(plate);
 
         if (vehicle.isEmpty()) {
-            throw new VehicleNotFoundException("Vehicle not found.");
+            throw new NotFoundException("Vehicle not found.");
         }
 
         return vehicle.get();
@@ -29,5 +29,9 @@ public class VehicleService implements IVehicle {
     @Override
     public List<Vehicle> getAllVehicles() {
         return repository.getAllVehicles();
+    }
+
+    public void AddVehicle(Vehicle vehicle) {
+        repository.addVehicle(vehicle);
     }
 }

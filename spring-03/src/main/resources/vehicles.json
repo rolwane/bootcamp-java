@@ -1,26 +1,26 @@
-[
-  {
-  "plate": "ABC 1234",
-  "model": "Fusca",
-  "year": 1970,
-  "price": 23000.0
-  },
-  {
-    "plate": "DEF 4321",
-    "model": "Opala",
-    "year": 1990,
-    "price": 43000.0
-  },
-  {
-    "plate": "XYZ 8888",
-    "model": "Civic",
-    "year": 1998,
-    "price": 10000.0
-  },
-  {
-    "plate": "AAA 8888",
-    "model": "Civic",
-    "year": 1997,
-    "price": 12000.0
-  }
-]
+[ {
+  "plate" : "ABC 1234",
+  "model" : "Fusca",
+  "year" : 1970,
+  "price" : 23000.0
+}, {
+  "plate" : "DEF 4321",
+  "model" : "Opala",
+  "year" : 1990,
+  "price" : 43000.0
+}, {
+  "plate" : "XYZ 8888",
+  "model" : "Civic",
+  "year" : 1998,
+  "price" : 10000.0
+}, {
+  "plate" : "AAA 8888",
+  "model" : "Civic",
+  "year" : 1997,
+  "price" : 12000.0
+}, {
+  "plate" : "ABC 1234",
+  "model" : "Fusca",
+  "year" : 1970,
+  "price" : 23000.0
+} ]
