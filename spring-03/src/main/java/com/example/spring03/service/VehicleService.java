@@ -31,7 +31,7 @@ public class VehicleService implements IVehicle {
         return repository.getAllVehicles();
     }
 
-    public void AddVehicle(Vehicle vehicle) {
+    public void addVehicle(Vehicle vehicle) {
         repository.addVehicle(vehicle);
     }
 }
