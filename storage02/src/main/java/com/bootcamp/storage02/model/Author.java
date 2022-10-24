@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,4 +25,13 @@ public class Author {
     @OneToOne(mappedBy = "author")
     @JsonIgnoreProperties(value = "author")
     private Address address;
+
+    @ManyToMany
+    @JsonIgnoreProperties("authors")
+    @JoinTable(
+            name = "author_book",
+            joinColumns = @JoinColumn(name = "id_author", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_book", referencedColumnName = "id")
+    )
+    private Set<Book> books;
 }
