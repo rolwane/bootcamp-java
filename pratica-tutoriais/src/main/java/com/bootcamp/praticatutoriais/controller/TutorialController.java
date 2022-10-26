@@ -42,4 +42,9 @@ public class TutorialController {
     public ResponseEntity<List<Tutorial>> getAllByTitle(@RequestParam String title) {
         return new ResponseEntity<>(service.getAllByTitle(title), HttpStatus.OK);
     }
+
+    @GetMapping("/published")
+    public ResponseEntity<List<Tutorial>> getAllPublished() {
+        return new ResponseEntity<>(service.getAllPublished(), HttpStatus.OK);
+    }
 }
