@@ -1,5 +1,6 @@
 package com.bootcamp.movies.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,26 +20,23 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
     @Column(length = 500, nullable = false)
     private String title;
 
     private double rating;
 
-    @Column(length = 10)
     private int awards;
 
     private LocalDateTime releaseDate;
 
-    @Column(length = 10)
-    private int length;
+    private Integer length;
 
     @ManyToOne
     @JoinColumn(name = "genre_id")
+    @JsonIgnoreProperties("movies")
     private Genre genre;
 
     @ManyToMany(mappedBy = "movies")
+    @JsonIgnoreProperties("movies")
     private List<Actor> actors;
 }
