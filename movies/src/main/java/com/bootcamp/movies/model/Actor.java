@@ -39,5 +39,14 @@ public class Actor {
     @ManyToOne
     @JoinColumn(name = "favorite_movie_id")
     @JsonIgnoreProperties("actors")
-    private Movie movie;
+    private Movie favoriteMovie;
+
+    @ManyToMany
+    @JoinTable(
+        name = "actor_episode",
+            joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "episode_id", referencedColumnName = "id")
+    )
+    @JsonIgnoreProperties("actors")
+    private List<Episode> episodes;
 }

@@ -31,4 +31,8 @@ public class Genre {
     @OneToMany(mappedBy = "genre")
     @JsonIgnoreProperties("genre")
     private List<Movie> movies;
+
+    @OneToMany(mappedBy = "genre")
+    @JsonIgnoreProperties("genre")
+    private List<Serie> series;
 }

@@ -1,8 +1,8 @@
 package com.bootcamp.movies.controller;
 
-import com.bootcamp.movies.dto.MovieDTO;
-import com.bootcamp.movies.model.Movie;
-import com.bootcamp.movies.service.IMovieService;
+import com.bootcamp.movies.dto.ActorDTO;
+import com.bootcamp.movies.model.Actor;
+import com.bootcamp.movies.service.ActorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/actors")
 @RequiredArgsConstructor
-public class MovieController {
+public class ActorController {
 
-    private final IMovieService service;
+    private final ActorService service;
 
     @GetMapping
-    public ResponseEntity<List<MovieDTO>> pegarTodos() {
-        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<ActorDTO>> getAllByFavoriteMovie() {
+        return new ResponseEntity<>(service.getAllByFavoriteMovie(), HttpStatus.OK);
     }
 }

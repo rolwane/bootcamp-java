@@ -10,33 +10,31 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "seasons")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Movie {
+public class Season {
     @Id
-    @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 10)
     private int id;
 
     @Column(length = 500, nullable = false)
     private String title;
 
-    private double rating;
-
-    private int awards;
+    @Column(length = 10)
+    private Integer number;
 
     private LocalDateTime releaseDate;
-
-    private Integer length;
+    private LocalDateTime endDate;
 
     @ManyToOne
-    @JoinColumn(name = "genre_id")
-    @JsonIgnoreProperties({ "id", "movies", "series", "ranking", "active" })
-    private Genre genre;
+    @JoinColumn(name = "serie_id")
+    @JsonIgnoreProperties("seasons")
+    private Serie serie;
 
-    @ManyToMany(mappedBy = "movies")
-    @JsonIgnoreProperties("movies")
-    private List<Actor> actors;
+    @OneToMany(mappedBy = "season")
+    @JsonIgnoreProperties("season")
+    private List<Episode> episodes;
 }
